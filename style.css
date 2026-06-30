@@ -417,29 +417,11 @@ footer {
     #main-page { transform: none !important; }
     body, html { overflow-y: auto; height: auto; }
     section { height: auto; min-height: 100vh; padding: 120px 20px 60px; }
-    .scroll-indicators, .cursor-dot, .cursor-outline { display: none; }
+    .scroll-indicators { display: none; }
     .hero-buttons { flex-direction: column; gap: 15px; }
     .contact-glass-card { padding: 30px 20px; }
 }
 
-/* Custom Cursor */
-.cursor-dot, .cursor-outline {
-    position: fixed;
-    top: 0; left: 0;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    z-index: 9999;
-    pointer-events: none;
-}
-.cursor-dot {
-    width: 8px; height: 8px;
-    background-color: var(--primary-color);
-}
-.cursor-outline {
-    width: 40px; height: 40px;
-    border: 2px solid rgba(56, 189, 248, 0.5);
-    transition: width 0.2s, height 0.2s, background-color 0.2s;
-}
 
 /* Scroll Indicators */
 .scroll-indicators {

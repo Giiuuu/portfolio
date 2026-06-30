@@ -210,6 +210,14 @@ const sections = document.querySelectorAll('section');
 let isScrolling = false;
 
 window.navigateTo = function (index, event) {
+    if (window.innerWidth <= 768) {
+        if (detailPage.style.display === 'block') {
+            detailPage.style.display = 'none';
+            mainPage.style.display = 'block';
+        }
+        return;
+    }
+
     if (event) event.preventDefault();
     if (index < 0 || index >= sections.length) return;
 
@@ -366,7 +374,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     statusMsg.style.color = '#4ade80'; // Green
                     statusMsg.style.display = 'block';
                     form.reset();
-                    submitBtn.textContent = 'Kirim Pesan';
+                    submitBtn.textContent = 'Send';
                     submitBtn.disabled = false;
 
                     setTimeout(() => {
@@ -384,37 +392,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// Custom Cursor Logic
-const cursorDot = document.querySelector('[data-cursor-dot]');
-const cursorOutline = document.querySelector('[data-cursor-outline]');
-
-if (cursorDot && cursorOutline) {
-    window.addEventListener('mousemove', function (e) {
-        const posX = e.clientX;
-        const posY = e.clientY;
-
-        cursorDot.style.left = `${posX}px`;
-        cursorDot.style.top = `${posY}px`;
-
-        // Add a slight delay to the outline
-        cursorOutline.animate({
-            left: `${posX}px`,
-            top: `${posY}px`
-        }, { duration: 500, fill: "forwards" });
-    });
-
-    // Enlarge cursor on hoverable elements
-    const hoverables = document.querySelectorAll('a, button, .portfolio-item, .indicator');
-    hoverables.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            cursorOutline.style.width = '60px';
-            cursorOutline.style.height = '60px';
-            cursorOutline.style.backgroundColor = 'rgba(56, 189, 248, 0.1)';
-        });
-        el.addEventListener('mouseleave', () => {
-            cursorOutline.style.width = '40px';
-            cursorOutline.style.height = '40px';
-            cursorOutline.style.backgroundColor = 'transparent';
-        });
-    });
-}
