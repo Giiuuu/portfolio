@@ -385,7 +385,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     statusMsg.textContent = 'Gagal mengirim pesan. Silakan cek konfigurasi EmailJS (Service ID, Template ID, Public Key).';
                     statusMsg.style.color = '#f87171'; // Red
                     statusMsg.style.display = 'block';
-                    submitBtn.textContent = 'Kirim Pesan';
+                    submitBtn.textContent = 'Send';
                     submitBtn.disabled = false;
                 });
         });
