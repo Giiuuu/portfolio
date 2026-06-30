@@ -362,7 +362,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             emailjs.sendForm(serviceID, templateID, this)
                 .then(() => {
-                    statusMsg.textContent = 'Pesan berhasil dikirim!';
+                    statusMsg.textContent = 'Message Sent!';
                     statusMsg.style.color = '#4ade80'; // Green
                     statusMsg.style.display = 'block';
                     form.reset();
