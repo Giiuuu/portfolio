@@ -84,13 +84,23 @@
             <!-- Hero Particle Background -->
             <canvas id="particles-canvas"></canvas>
             <div class="home-content reveal-up">
-                <img src="Profile.jpg" alt="Foto profile" class="profile-img">
-                <h1>Theodore Fitzgerald Wailan</h1>
+                <div class="profile-img-container">
+                    <div class="profile-glow"></div>
+                    <img src="Profile.jpg" alt="Foto profile" class="profile-img">
+                </div>
+                <h1 class="gradient-text">Theodore Fitzgerald Wailan</h1>
                 <p class="typing-container"><span id="typing-text"></span><span class="typing-cursor">|</span></p>
                 <div class="hero-buttons">
                     <a href="#portfolio" class="btn" onclick="navigateTo(3, event)">My Projects</a>
                     <a href="Theodore Fitzgerald.pdf" download class="btn btn-secondary">Download CV</a>
                 </div>
+            </div>
+            <!-- Scroll Down Indicator -->
+            <div class="scroll-down-indicator" onclick="navigateTo(1)">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+                <p>Scroll</p>
             </div>
         </section>
 
@@ -278,40 +288,42 @@
 
         <!-- Footer / Contact -->
         <section id="contact">
-            <h2 class="section-title reveal-up">Let's Collaborate!</h2>
-            <div class="contact-glass-card reveal-up">
-                <p>Interested in discussing research, digital security, or programming projects? Don't hesitate to reach
-                    out!</p>
-                <form id="contact-form" class="email-form">
-                    <div class="form-group">
-                        <input type="text" id="user_name" name="user_name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="user_email" name="user_email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" name="message" placeholder="What's Up?" rows="4" required></textarea>
-                    </div>
-                    <button type="submit" class="contact-btn" id="submit-btn">Send</button>
-                    <p id="form-status" style="margin-top: 15px; font-size: 0.95rem; display: none;"></p>
-                </form>
+            <div class="contact-wrapper">
+                <h2 class="section-title reveal-up">Let's Collaborate!</h2>
+                <div class="contact-glass-card reveal-up">
+                    <p>Interested in discussing research, digital security, or programming projects? Don't hesitate to reach
+                        out!</p>
+                    <form id="contact-form" class="email-form">
+                        <div class="form-group">
+                            <input type="text" id="user_name" name="user_name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="user_email" name="user_email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="What's Up?" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="contact-btn" id="submit-btn">Send</button>
+                        <p id="form-status" style="margin-top: 15px; font-size: 0.95rem; display: none;"></p>
+                    </form>
 
-                <div class="social-links">
+                    <div class="social-links">
 
-                    <a href="https://github.com/Giiuuu" target="_blank" aria-label="GitHub"><svg viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <path
-                                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-                            </path>
-                        </svg></a>
-                    <a href="https://www.instagram.com/gerywlan/" target="_blank" aria-label="Instagram"><svg
-                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                        </svg></a>
+                        <a href="https://github.com/Giiuuu" target="_blank" aria-label="GitHub"><svg viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                </path>
+                            </svg></a>
+                        <a href="https://www.instagram.com/gerywlan/" target="_blank" aria-label="Instagram"><svg
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg></a>
+                    </div>
                 </div>
             </div>
             <footer>

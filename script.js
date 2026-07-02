@@ -392,3 +392,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+// --- Interactive Glow Effect ---
+const glowCards = document.querySelectorAll('.about-glass-card, .portfolio-item, .contact-glass-card, .skill-oval');
+glowCards.forEach(card => {
+    card.classList.add('interactive-glow');
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+    });
+});
