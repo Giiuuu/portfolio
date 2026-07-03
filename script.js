@@ -186,17 +186,17 @@ animateParticles();
 const projectsData = {
     'kiyoka': {
         title: "Kiyoka Rice",
-        img: "kiyoka.png",
+        img: "/kiyoka.png",
         content: "<p>Creating a website that will be a primary catalyst for building a brand, educating consumers about lifestyle, and generating direct sales.</p>"
     },
     'ntt': {
         title: "CTRL P + CTRL F",
-        img: "CTRLP.jpg.jpeg",
+        img: "/CTRLP.jpg.jpeg",
         content: "<p>Social Project in the form of a seminar. Act as a member of the logistics division, responsible in facilitating the necessary provisions for the event.</p>"
     },
     'slr': {
         title: "Click & Found",
-        img: "click.jpeg",
+        img: "/click.jpeg",
         content: "<p>Economic Survival project in the form of a E-Commerce web. Act as Project Manager, responsible in leading, planning, and organizing  </p>"
     }
 };
