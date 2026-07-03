@@ -364,7 +364,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const serviceID = 'service_s7tjnqa';
             const templateID = 'template_guhi7wi';
 
-            submitBtn.textContent = 'Mengirim...';
+            submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true;
             statusMsg.style.display = 'none';
 
@@ -382,7 +382,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     }, 5000);
                 }, (error) => {
                     console.log('FAILED...', error);
-                    statusMsg.textContent = 'Gagal mengirim pesan. Silakan cek konfigurasi EmailJS (Service ID, Template ID, Public Key).';
+                    statusMsg.textContent = 'Failed to send Email.';
                     statusMsg.style.color = '#f87171'; // Red
                     statusMsg.style.display = 'block';
                     submitBtn.textContent = 'Send';
