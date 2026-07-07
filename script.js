@@ -187,67 +187,47 @@ const projectsData = {
     'kiyoka': {
         title: "Kiyoka Rice",
         img: "/kiyoka.png",
-        content: "<p>Creating a website that will be a primary catalyst for building a brand, educating consumers about lifestyle, and generating direct sales.</p>"
+        content: "<p>Creating a website that will be a primary catalyst for building a brand, educating consumers about lifestyle, and generating direct sales.</p>",
+        documentation: `<h3>Project Details</h3>
+                        <ul style="margin-top: 15px; margin-left: 20px; color: var(--text-muted);">
+                            <li><strong>Objective:</strong> E-commerce and brand building.</li>
+                            <li><strong>Role:</strong> Freelance Web Developer.</li>
+                            <li><strong>Tech Stack:</strong> HTML, CSS, JavaScript.</li>
+                        </ul>`
     },
     'ntt': {
         title: "CTRL P + CTRL F",
         img: "/CTRLP.jpg.jpeg",
-        content: "<p>Social Project in the form of a seminar. Act as a member of the logistics division, responsible in facilitating the necessary provisions for the event.</p>"
+        content: "<p>Social Project in the form of a seminar. Act as a member of the logistics division, responsible in facilitating the necessary provisions for the event.</p>",
+        documentation: `<h3>Project Details</h3>
+                        <ul style="margin-top: 15px; margin-left: 20px; color: var(--text-muted);">
+                            <li><strong>Objective:</strong> Educational seminar organization.</li>
+                            <li><strong>Role:</strong> Logistics Division Member.</li>
+                            <li><strong>Responsibilities:</strong> Venue setup, equipment handling, and coordination.</li>
+                        </ul>`
     },
     'slr': {
         title: "Click & Found",
         img: "/click.jpeg",
-        content: "<p>Economic Survival project in the form of a E-Commerce web. Act as Project Manager, responsible in leading, planning, and organizing  </p>"
+        content: "<p>Economic Survival project in the form of a E-Commerce web. Act as Project Manager, responsible in leading, planning, and organizing  </p>",
+        documentation: `<h3>Project Details</h3>
+                        <ul style="margin-top: 15px; margin-left: 20px; color: var(--text-muted);">
+                            <li><strong>Objective:</strong> E-commerce survival simulation project.</li>
+                            <li><strong>Role:</strong> Project Manager.</li>
+                            <li><strong>Tech Stack:</strong> HTML, CSS, JavaScript.</li>
+                        </ul>`
     }
 };
 
 const mainPage = document.getElementById('main-page');
 const detailPage = document.getElementById('project-detail-page');
 
-// Custom SPA Fullpage Engine
-let currentSectionIndex = 0;
-const sections = document.querySelectorAll('section');
-let isScrolling = false;
-
-window.navigateTo = function (index, event) {
-    if (window.innerWidth <= 768) {
-        if (detailPage.style.display === 'block') {
-            detailPage.style.display = 'none';
-            mainPage.style.display = 'block';
-        }
-        return;
-    }
-
-    if (event) event.preventDefault();
-    if (index < 0 || index >= sections.length) return;
-
-    currentSectionIndex = index;
-    mainPage.style.transform = `translateY(-${index * 100}vh)`;
-
-    const targetId = sections[index].getAttribute('id');
-    history.pushState(null, null, `#${targetId}`);
-
-    // Update active indicator
-    const indicators = document.querySelectorAll('.indicator');
-    if (indicators.length > 0) {
-        indicators.forEach(ind => ind.classList.remove('active'));
-        indicators[index].classList.add('active');
-    }
-
-    isScrolling = true;
-    setTimeout(() => { isScrolling = false; }, 1000);
-
-    if (detailPage.style.display === 'block') {
-        detailPage.style.display = 'none';
-        mainPage.style.display = 'block';
-    }
-};
-
 window.openProject = function (projectId) {
     const data = projectsData[projectId];
     document.getElementById('detail-title').innerHTML = data.title;
     document.getElementById('detail-image').src = data.img;
     document.getElementById('detail-content').innerHTML = data.content;
+    document.getElementById('detail-documentation').innerHTML = data.documentation || '';
     mainPage.style.display = 'none';
     detailPage.style.display = 'block';
     detailPage.scrollTop = 0;
@@ -264,50 +244,6 @@ window.toggleMenu = function () {
         nav.classList.toggle('active');
     }
 }
-
-// Fullpage Event Listeners
-window.addEventListener('wheel', (e) => {
-    if (window.innerWidth <= 768) return; // Native scroll on mobile
-    if (detailPage.style.display === 'block') return; // Let native scroll work on detail page
-    if (isScrolling) return;
-    if (Math.abs(e.deltaY) < 15) return; // Trackpad sensitivity threshold
-
-    if (e.deltaY > 0) {
-        navigateTo(currentSectionIndex + 1);
-    } else {
-        navigateTo(currentSectionIndex - 1);
-    }
-}, { passive: false });
-
-let touchStartY = 0;
-window.addEventListener('touchstart', e => {
-    if (window.innerWidth <= 768) return;
-    if (detailPage.style.display === 'block') return;
-    touchStartY = e.changedTouches[0].screenY;
-}, { passive: false });
-
-window.addEventListener('touchend', e => {
-    if (window.innerWidth <= 768) return;
-    if (detailPage.style.display === 'block') return;
-    const touchEndY = e.changedTouches[0].screenY;
-    if (isScrolling) return;
-
-    if (touchStartY - touchEndY > 50) {
-        navigateTo(currentSectionIndex + 1);
-    } else if (touchEndY - touchStartY > 50) {
-        navigateTo(currentSectionIndex - 1);
-    }
-}, { passive: false });
-
-window.addEventListener('keydown', (e) => {
-    if (window.innerWidth <= 768) return;
-    if (detailPage.style.display === 'block' || isScrolling) return;
-    if (e.key === 'ArrowDown' || e.key === 'PageDown') {
-        navigateTo(currentSectionIndex + 1);
-    } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
-        navigateTo(currentSectionIndex - 1);
-    }
-});
 
 // 3D Tilt Effect for Portfolio Cards
 const cards = document.querySelectorAll('.portfolio-item');
@@ -337,15 +273,14 @@ cards.forEach(card => {
 // Scroll Reveal Observer
 document.addEventListener("DOMContentLoaded", () => {
     const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-up');
-    const revealObserver = new IntersectionObserver((entries) => {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
-            } else {
-                entry.target.classList.remove('active'); // Re-animate on revisit
+                observer.unobserve(entry.target); // Reveal only once for smoother scrolling
             }
         });
-    }, { rootMargin: "0px 0px 0px 0px", threshold: 0.1 });
+    }, { rootMargin: "0px 0px -50px 0px", threshold: 0.1 });
 
     revealElements.forEach(el => revealObserver.observe(el));
 });
@@ -359,6 +294,18 @@ document.addEventListener("DOMContentLoaded", () => {
     if (form) {
         form.addEventListener('submit', function (event) {
             event.preventDefault();
+
+            // Validate reCAPTCHA
+            const recaptchaResponse = grecaptcha.getResponse();
+            if (recaptchaResponse.length === 0) {
+                statusMsg.textContent = 'Please verify that you are not a robot.';
+                statusMsg.style.color = '#f87171';
+                statusMsg.style.display = 'block';
+                setTimeout(() => {
+                    statusMsg.style.display = 'none';
+                }, 3000);
+                return;
+            }
 
             // TODO: Ganti dengan SERVICE ID dan TEMPLATE ID dari akun EmailJS Anda
             const serviceID = 'service_s7tjnqa';
@@ -374,6 +321,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     statusMsg.style.color = '#4ade80'; // Green
                     statusMsg.style.display = 'block';
                     form.reset();
+                    grecaptcha.reset();
                     submitBtn.textContent = 'Send';
                     submitBtn.disabled = false;
 
@@ -404,3 +352,46 @@ glowCards.forEach(card => {
         card.style.setProperty('--mouse-y', `${y}px`);
     });
 });
+
+// --- Drag to Scroll for Carousel ---
+const slider = document.querySelector('.carousel-track-container');
+let isDown = false;
+let startX;
+let scrollLeft;
+
+if (slider) {
+    slider.addEventListener('mousedown', (e) => {
+        isDown = true;
+        slider.classList.add('active');
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+    });
+    slider.addEventListener('mouseleave', () => {
+        isDown = false;
+        slider.classList.remove('active');
+    });
+    slider.addEventListener('mouseup', () => {
+        isDown = false;
+        slider.classList.remove('active');
+    });
+    slider.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX) * 2; // Scroll speed multiplier
+        slider.scrollLeft = scrollLeft - walk;
+    });
+}
+
+// --- Manual Button Slide for Carousel ---
+window.slideCarousel = function(direction) {
+    const container = document.querySelector('.carousel-track-container');
+    if (container) {
+        // Approximate width of one card + gap
+        const scrollAmount = 380; 
+        container.scrollBy({
+            left: direction * scrollAmount,
+            behavior: 'smooth'
+        });
+    }
+}

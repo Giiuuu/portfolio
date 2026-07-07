@@ -9,8 +9,10 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Fira+Code:wght@400;600&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <script type="module" src="/script.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
     </script>
     <script type="text/javascript">
@@ -25,14 +27,7 @@
 
 <body>
 
-    <!-- Scroll Indicators -->
-    <div class="scroll-indicators">
-        <div class="indicator active" onclick="navigateTo(0)"></div>
-        <div class="indicator" onclick="navigateTo(1)"></div>
-        <div class="indicator" onclick="navigateTo(2)"></div>
-        <div class="indicator" onclick="navigateTo(3)"></div>
-        <div class="indicator" onclick="navigateTo(4)"></div>
-    </div>
+
 
     <!-- Header & Navigation -->
     <header>
@@ -64,11 +59,11 @@
             </div>
 
             <ul id="nav-menu">
-                <li><a href="#home" onclick="navigateTo(0, event); toggleMenu()">Home</a></li>
-                <li><a href="#about" onclick="navigateTo(1, event); toggleMenu()">About</a></li>
-                <li><a href="#skills" onclick="navigateTo(2, event); toggleMenu()">Skills</a></li>
-                <li><a href="#portfolio" onclick="navigateTo(3, event); toggleMenu()">Portfolio</a></li>
-                <li><a href="#contact" onclick="navigateTo(4, event); toggleMenu()">Contact</a></li>
+                <li><a href="#home" onclick="toggleMenu()">Home</a></li>
+                <li><a href="#about" onclick="toggleMenu()">About</a></li>
+                <li><a href="#skills" onclick="toggleMenu()">Skills</a></li>
+                <li><a href="#portfolio" onclick="toggleMenu()">Portfolio</a></li>
+                <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -88,24 +83,28 @@
                     <div class="profile-glow"></div>
                     <img src="/Profile.jpg" alt="Foto profile" class="profile-img">
                 </div>
+                <div class="availability-badge">
+                    <span class="status-dot"></span> Available for opportunities
+                </div>
                 <h1 class="gradient-text">Theodore Fitzgerald Wailan</h1>
                 <p class="typing-container"><span id="typing-text"></span><span class="typing-cursor">|</span></p>
                 <div class="hero-buttons">
-                    <a href="#portfolio" class="btn" onclick="navigateTo(3, event)">My Projects</a>
-                    <a href="/Theodore_Fitzgerald.pdf" download class="btn btn-secondary">Download CV</a>
+                    <a href="#portfolio" class="btn shimmer-btn">My Projects</a>
+                    <a href="/Theodore_Fitzgerald.pdf" download class="btn btn-secondary shimmer-btn">Download CV</a>
                 </div>
             </div>
             <!-- Scroll Down Indicator -->
-            <div class="scroll-down-indicator" onclick="navigateTo(1)">
+            <a href="#about" class="scroll-down-indicator" style="text-decoration: none; color: inherit;">
                 <div class="mouse">
                     <div class="wheel"></div>
                 </div>
                 <p>Scroll</p>
-            </div>
+            </a>
         </section>
 
         <!-- About Section -->
         <section id="about">
+            <p class="section-subtitle reveal-left">GET TO KNOW ME</p>
             <h2 class="section-title reveal-left">About Me</h2>
             <div class="about-grid reveal-right">
                 <div class="about-glass-card">
@@ -124,206 +123,212 @@
 
         <!-- Skills Section -->
         <section id="skills">
-            <h2 class="section-title reveal-left skills-title">Skill</h2>
-            <div class="skills-oval-container reveal-right">
-                <div class="skill-oval">HTML5</div>
-                <div class="skill-oval">CSS3</div>
-                <div class="skill-oval">Javascript</div>
-                <div class="skill-oval">C++</div>
-                <div class="skill-oval">PHP</div>
-                <div class="skill-oval">Wireshark</div>
-                <div class="skill-oval">Autopsy</div>
-                <div class="skill-oval">Kali Linux</div>
+            <p class="section-subtitle reveal-left">WHAT I DO</p>
+            <h2 class="section-title reveal-left skills-title">Technical Skills</h2>
+            <div class="skills-categories reveal-right">
+                <div class="skill-category">
+                    <h3>Frontend</h3>
+                    <div class="skills-grid">
+                        <div class="skill-oval"><i class="fab fa-html5" style="color: #E34F26;"></i> HTML5</div>
+                        <div class="skill-oval"><i class="fab fa-css3-alt" style="color: #1572B6;"></i> CSS3</div>
+                        <div class="skill-oval"><i class="fab fa-js" style="color: #F7DF1E;"></i> Javascript</div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Backend & Core</h3>
+                    <div class="skills-grid">
+                        <div class="skill-oval"><i class="fa-solid fa-c"></i> C++</div>
+                        <div class="skill-oval"><i class="fab fa-php" style="color: #777BB4;"></i> PHP</div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Cybersecurity & Tools</h3>
+                    <div class="skills-grid">
+                        <div class="skill-oval"><i class="fa-solid fa-network-wired" style="color: #4ade80;"></i>
+                            Wireshark</div>
+                        <div class="skill-oval"><i class="fa-solid fa-magnifying-glass-chart"
+                                style="color: #f87171;"></i> Autopsy</div>
+                        <div class="skill-oval"><i class="fab fa-linux"></i> Kali Linux</div>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- Portfolio Section -->
         <section id="portfolio">
+            <p class="section-subtitle reveal-left">MY RECENT WORK</p>
             <h2 class="section-title reveal-left">Selected Projects</h2>
-            <div class="carousel-track-container reveal-right">
-                <!-- Track 1 -->
-                <div class="carousel-track">
-                    <div class="portfolio-item">
-                        <img src="/kiyoka.png" alt="KiyokaRice" class="portfolio-img" loading="lazy">
-                        <h3 class="portfolio-title">Kiyoka Rice</h3>
-                        <p class="portfolio-desc">Freelance Web Developer</p>
-                        <button onclick="openProject('kiyoka')" class="arrow-btn"
-                            aria-label="View WannaCry Ransomware Project">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="9 18 15 12 9 6"></polyline>
-                            </svg>
-                        </button>
-                    </div>
 
-                    <div class="portfolio-item">
-                        <img src="/CTRLP.jpg.jpeg" alt="SosPro" class="portfolio-img" loading="lazy">
-                        <h3 class="portfolio-title">CTRL P + CTRL F</h3>
-                        <p class="portfolio-desc">Social Project in the form of a seminar </p>
-                        <button onclick="openProject('ntt')" class="arrow-btn"
-                            aria-label="View Map Zoom Animation Project">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="9 18 15 12 9 6"></polyline>
-                            </svg>
-                        </button>
-                    </div>
+            <div class="portfolio-carousel-wrapper reveal-right">
+                <button class="carousel-nav-btn prev-btn" onclick="slideCarousel(-1)" aria-label="Previous Project">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </button>
 
-                    <div class="portfolio-item">
-                        <img src="/click.jpeg" alt="Click&Found" class="portfolio-img" loading="lazy">
-                        <h3 class="portfolio-title">Click & Found</h3>
-                        <p class="portfolio-desc">Economic Survival project </p>
-                        <button onclick="openProject('slr')" class="arrow-btn" aria-label="View Data Privacy Project">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="9 18 15 12 9 6"></polyline>
-                            </svg>
-                        </button>
+                <div class="carousel-track-container">
+                    <!-- Track 1 -->
+                    <div class="carousel-track">
+                        <div class="portfolio-item">
+                            <img src="/kiyoka.png" alt="KiyokaRice" class="portfolio-img" loading="lazy">
+                            <h3 class="portfolio-title">Kiyoka Rice</h3>
+                            <p class="portfolio-desc">Freelance Web Developer</p>
+                            <button onclick="openProject('kiyoka')" class="arrow-btn"
+                                aria-label="View WannaCry Ransomware Project">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="portfolio-item">
+                            <img src="/CTRLP.jpg.jpeg" alt="SosPro" class="portfolio-img" loading="lazy">
+                            <h3 class="portfolio-title">CTRL P + CTRL F</h3>
+                            <p class="portfolio-desc">Social Project in the form of a seminar </p>
+                            <button onclick="openProject('ntt')" class="arrow-btn"
+                                aria-label="View Map Zoom Animation Project">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="portfolio-item">
+                            <img src="/click.jpeg" alt="Click&Found" class="portfolio-img" loading="lazy">
+                            <h3 class="portfolio-title">Click & Found</h3>
+                            <p class="portfolio-desc">Economic Survival project </p>
+                            <button onclick="openProject('slr')" class="arrow-btn"
+                                aria-label="View Data Privacy Project">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Blank Project Templates -->
+                        <div class="portfolio-item">
+                            <div class="portfolio-img"
+                                style="background-color: rgba(255, 255, 255, 0.05); display: flex; align-items: center; justify-content: center; border: 2px dashed rgba(255, 255, 255, 0.2);">
+                                <span style="color: var(--text-muted); font-size: 0.9rem;">Add Image</span>
+                            </div>
+                            <h3 class="portfolio-title">New Project Title</h3>
+                            <p class="portfolio-desc">Project description goes here...</p>
+                            <button onclick="/* Add project function */" class="arrow-btn" aria-label="View Project">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="portfolio-item">
+                            <div class="portfolio-img"
+                                style="background-color: rgba(255, 255, 255, 0.05); display: flex; align-items: center; justify-content: center; border: 2px dashed rgba(255, 255, 255, 0.2);">
+                                <span style="color: var(--text-muted); font-size: 0.9rem;">Add Image</span>
+                            </div>
+                            <h3 class="portfolio-title">New Project Title</h3>
+                            <p class="portfolio-desc">Project description goes here...</p>
+                            <button onclick="/* Add project function */" class="arrow-btn" aria-label="View Project">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="portfolio-item">
+                            <div class="portfolio-img"
+                                style="background-color: rgba(255, 255, 255, 0.05); display: flex; align-items: center; justify-content: center; border: 2px dashed rgba(255, 255, 255, 0.2);">
+                                <span style="color: var(--text-muted); font-size: 0.9rem;">Add Image</span>
+                            </div>
+                            <h3 class="portfolio-title">New Project Title</h3>
+                            <p class="portfolio-desc">Project description goes here...</p>
+                            <button onclick="/* Add project function */" class="arrow-btn" aria-label="View Project">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Track 2 (Duplicate) -->
-                <div class="carousel-track" aria-hidden="true">
-                    <div class="portfolio-item">
-                        <img src="/kiyoka.png" alt="KiyokaRice" class="portfolio-img" loading="lazy">
-                        <h3 class="portfolio-title">Kiyoka Rice</h3>
-                        <p class="portfolio-desc">Freelance Web Developer</p>
-                        <button onclick="openProject('kiyoka')" class="arrow-btn" tabindex="-1"><svg viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <polyline points="9 18 15 12 9 6"></polyline>
-                            </svg></button>
-                    </div>
-                    <div class="portfolio-item">
-                        <img src="/CTRLP.jpg.jpeg" alt="SosPro" class="portfolio-img" loading="lazy">
-                        <h3 class="portfolio-title">CTRL P + CTRL F</h3>
-                        <p class="portfolio-desc">Social Project in the form of a seminar </p>
-                        <button onclick="openProject('ntt')" class="arrow-btn" tabindex="-1"><svg viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <polyline points="9 18 15 12 9 6"></polyline>
-                            </svg></button>
-                    </div>
-                    <div class="portfolio-item">
-                        <img src="/click.jpeg" alt="Click&Found" class="portfolio-img" loading="lazy">
-                        <h3 class="portfolio-title">Click & Found</h3>
-                        <p class="portfolio-desc">Economic Survival project </p>
-                        <button onclick="openProject('slr')" class="arrow-btn" tabindex="-1"><svg viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <polyline points="9 18 15 12 9 6"></polyline>
-                            </svg></button>
-                    </div>
-                </div>
-
-                <!-- Track 3 (Duplicate) -->
-                <div class="carousel-track" aria-hidden="true">
-                    <div class="portfolio-item">
-                        <img src="/kiyoka.png" alt="KiyokaRice" class="portfolio-img" loading="lazy">
-                        <h3 class="portfolio-title">Kiyoka Rice</h3>
-                        <p class="portfolio-desc">Freelance Web Developer</p>
-                        <button onclick="openProject('kiyoka')" class="arrow-btn" tabindex="-1"><svg viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <polyline points="9 18 15 12 9 6"></polyline>
-                            </svg></button>
-                    </div>
-                    <div class="portfolio-item">
-                        <img src="/CTRLP.jpg.jpeg" alt="SosPro" class="portfolio-img" loading="lazy">
-                        <h3 class="portfolio-title">CTRL P + CTRL F</h3>
-                        <p class="portfolio-desc">Social Project in the form of a seminar </p>
-                        <button onclick="openProject('ntt')" class="arrow-btn" tabindex="-1"><svg viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <polyline points="9 18 15 12 9 6"></polyline>
-                            </svg></button>
-                    </div>
-                    <div class="portfolio-item">
-                        <img src="/click.jpeg" alt="Click&Found" class="portfolio-img" loading="lazy">
-                        <h3 class="portfolio-title">Click & Found</h3>
-                        <p class="portfolio-desc">Economic Survival project </p>
-                        <button onclick="openProject('slr')" class="arrow-btn" tabindex="-1"><svg viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <polyline points="9 18 15 12 9 6"></polyline>
-                            </svg></button>
-                    </div>
-                </div>
-
-                <!-- Track 4 (Duplicate) -->
-                <div class="carousel-track" aria-hidden="true">
-                    <div class="portfolio-item">
-                        <img src="/kiyoka.png" alt="KiyokaRice" class="portfolio-img" loading="lazy">
-                        <h3 class="portfolio-title">Kiyoka Rice</h3>
-                        <p class="portfolio-desc">Freelance Web Developer</p>
-                        <button onclick="openProject('kiyoka')" class="arrow-btn" tabindex="-1"><svg viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <polyline points="9 18 15 12 9 6"></polyline>
-                            </svg></button>
-                    </div>
-                    <div class="portfolio-item">
-                        <img src="/CTRLP.jpg.jpeg" alt="SosPro" class="portfolio-img" loading="lazy">
-                        <h3 class="portfolio-title">CTRL P + CTRL F</h3>
-                        <p class="portfolio-desc">Social Project</p>
-                        <button onclick="openProject('ntt')" class="arrow-btn" tabindex="-1"><svg viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <polyline points="9 18 15 12 9 6"></polyline>
-                            </svg></button>
-                    </div>
-                    <div class="portfolio-item">
-                        <img src="/click.jpeg" alt="Click&Found" class="portfolio-img" loading="lazy">
-                        <h3 class="portfolio-title">Click & Found</h3>
-                        <p class="portfolio-desc">Economic Survival project </p>
-                        <button onclick="openProject('slr')" class="arrow-btn" tabindex="-1"><svg viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <polyline points="9 18 15 12 9 6"></polyline>
-                            </svg></button>
-                    </div>
-                </div>
+                <button class="carousel-nav-btn next-btn" onclick="slideCarousel(1)" aria-label="Next Project">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
             </div>
         </section>
 
         <!-- Footer / Contact -->
         <section id="contact">
             <div class="contact-wrapper">
+                <p class="section-subtitle reveal-up">REACH OUT</p>
                 <h2 class="section-title reveal-up">Let's Collaborate!</h2>
-                <div class="contact-glass-card reveal-up">
-                    <p>Interested in discussing research, digital security, or programming projects? Don't hesitate to
-                        reach
-                        out!</p>
-                    <form id="contact-form" class="email-form">
-                        <div class="form-group">
-                            <input type="text" id="user_name" name="user_name" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="user_email" name="user_email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" name="message" placeholder="What's Up?" rows="4" required></textarea>
-                        </div>
-                        <button type="submit" class="contact-btn" id="submit-btn">Send</button>
-                        <p id="form-status" style="margin-top: 15px; font-size: 0.95rem; display: none;"></p>
-                    </form>
 
-                    <div class="social-links">
+                <div class="contact-two-column reveal-up">
+                    <div class="contact-info-side glass-panel">
+                        <div class="contact-info-content">
+                            <h3>Let's talk about everything!</h3>
+                            <p>Interested in discussing research, digital security, or programming projects? Don't
+                                hesitate to reach out! Drop me a message below or connect with me on my social
+                                platforms.</p>
 
-                        <a href="https://github.com/Giiuuu" target="_blank" aria-label="GitHub"><svg viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path
-                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-                                </path>
-                            </svg></a>
-                        <a href="https://www.instagram.com/gerywlan/" target="_blank" aria-label="Instagram"><svg
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                            </svg></a>
+                            <div class="social-links-modern">
+                                <a href="https://github.com/Giiuuu" target="_blank" aria-label="GitHub">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path
+                                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                        </path>
+                                    </svg>
+                                </a>
+                                <a href="https://www.instagram.com/gerywlan/" target="_blank" aria-label="Instagram">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                    </svg>
+                                </a>
+                                <a href="mailto:theodore@example.com" target="_blank" aria-label="Email">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path
+                                            d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                        </path>
+                                        <polyline points="22,6 12,13 2,6"></polyline>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-side glass-panel">
+                        <form id="contact-form" class="email-form">
+                            <div class="form-group">
+                                <input type="text" id="user_name" name="user_name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="user_email" name="user_email" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="message" name="message" placeholder="What's Up?" rows="4"
+                                    required></textarea>
+                            </div>
+                            <div class="recaptcha-wrapper">
+                                <!-- TODO: Replace data-sitekey with your actual reCAPTCHA v2 Site Key -->
+                                <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+                            </div>
+                            <button type="submit" class="contact-btn shimmer-btn" id="submit-btn">Send Message</button>
+                            <p id="form-status" style="margin-top: 15px; font-size: 0.95rem; display: none;"></p>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -340,12 +345,15 @@
                 stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="15 18 9 12 15 6"></polyline>
             </svg>
-            Kembali ke Portofolio
+            Back to Portfolio
         </button>
 
         <h1 id="detail-title">Judul Proyek</h1>
         <img id="detail-image" src="" alt="Project Cover">
         <div id="detail-content"></div>
+        <div id="detail-documentation"
+            style="margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 1.05rem; line-height: 1.8;">
+        </div>
     </div>
 </body>
 
