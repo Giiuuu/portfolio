@@ -192,8 +192,12 @@ const projectsData = {
                         <ul style="margin-top: 15px; margin-left: 20px; color: var(--text-muted);">
                             <li><strong>Objective:</strong> E-commerce and brand building.</li>
                             <li><strong>Role:</strong> Freelance Web Developer.</li>
-                            <li><strong>Tech Stack:</strong> HTML, CSS, JavaScript.</li>
-                        </ul>`
+                            <li><strong>Tech Stack:</strong> HTML, CSS, JavaScript, Bootstrap 5, GSAP.</li>
+                        </ul>`,
+        docImages: [
+            { title: "Product View", img: "/kiyoka.png", caption: "Showcasing the different rice products." },
+            { title: "Homepage", img: "/kiyoka.png", caption: "Clean and modern hero section." }
+        ]
     },
     'ntt': {
         title: "CTRL P + CTRL F",
@@ -204,7 +208,10 @@ const projectsData = {
                             <li><strong>Objective:</strong> Educational seminar organization.</li>
                             <li><strong>Role:</strong> Logistics Division Member.</li>
                             <li><strong>Responsibilities:</strong> Venue setup, equipment handling, and coordination.</li>
-                        </ul>`
+                        </ul>`,
+        docImages: [
+            { title: "Event Seminar", img: "/CTRLP.jpg.jpeg", caption: "Participants and committee during the seminar." }
+        ]
     },
     'slr': {
         title: "Click & Found",
@@ -212,10 +219,15 @@ const projectsData = {
         content: "<p>Economic Survival project in the form of a E-Commerce web. Act as Project Manager, responsible in leading, planning, and organizing  </p>",
         documentation: `<h3>Project Details</h3>
                         <ul style="margin-top: 15px; margin-left: 20px; color: var(--text-muted);">
-                            <li><strong>Objective:</strong> E-commerce survival simulation project.</li>
+                            <li><strong>Objective:</strong> E-commerce simulation project.</li>
                             <li><strong>Role:</strong> Project Manager.</li>
                             <li><strong>Tech Stack:</strong> HTML, CSS, JavaScript.</li>
-                        </ul>`
+                        </ul>`,
+        docImages: [
+            { title: "Booth & Team", img: "/click.jpeg", caption: "Our service booth during the Economic Survival exhibition project" },
+            { title: "Project Planning", img: "/click.jpeg", caption: "Team coordinating for the e-commerce deployment." },
+            { title: "Presentation", img: "/click.jpeg", caption: "Pitching the idea to the stakeholders." }
+        ]
     },
     'blank1': {
         title: "Portfolio Website",
@@ -226,7 +238,10 @@ const projectsData = {
                             <li><strong>Objective:</strong> Create a compelling digital presence and professional portfolio.</li>
                             <li><strong>Role:</strong> Front-End Developer & Designer.</li>
                             <li><strong>Tech Stack:</strong> HTML5, CSS3, Vanilla JavaScript, EmailJS.</li>
-                        </ul>`
+                        </ul>`,
+        docImages: [
+            { title: "Hero Section", img: "portoweb.png", caption: "Interactive glassmorphic hero design." }
+        ]
     },
     'blank2': {
         title: "New Project Title",
@@ -237,7 +252,8 @@ const projectsData = {
                             <li><strong>Objective:</strong> ...</li>
                             <li><strong>Role:</strong> ...</li>
                             <li><strong>Tech Stack:</strong> ...</li>
-                        </ul>`
+                        </ul>`,
+        docImages: []
     },
     'blank3': {
         title: "New Project Title",
@@ -248,7 +264,8 @@ const projectsData = {
                             <li><strong>Objective:</strong> ...</li>
                             <li><strong>Role:</strong> ...</li>
                             <li><strong>Tech Stack:</strong> ...</li>
-                        </ul>`
+                        </ul>`,
+        docImages: []
     }
 };
 
@@ -261,15 +278,78 @@ window.openProject = function (projectId) {
     document.getElementById('detail-image').src = data.img;
     document.getElementById('detail-content').innerHTML = data.content;
     document.getElementById('detail-documentation').innerHTML = data.documentation || '';
+    
+    const galleryContainer = document.getElementById('detail-gallery');
+    galleryContainer.innerHTML = '';
+    
+    if (data.docImages && data.docImages.length > 0) {
+        let stackHTML = '<div class="doc-stack-container">';
+        data.docImages.forEach((imgObj) => {
+            stackHTML += `
+                <div class="doc-card" onclick="zoomImage('${imgObj.img}', '${imgObj.caption.replace(/'/g, "\\'")}')">
+                    <div class="doc-card-header">
+                        <div class="doc-card-header-left">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                            ${imgObj.title}
+                        </div>
+                        <div class="doc-card-zoom">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                            Zoom
+                        </div>
+                    </div>
+                    <div class="doc-card-img-wrapper">
+                        <img src="${imgObj.img}" alt="${imgObj.title}">
+                    </div>
+                    <div class="doc-card-caption">
+                        ${imgObj.caption}
+                    </div>
+                </div>
+            `;
+        });
+        stackHTML += '</div>';
+        galleryContainer.innerHTML = stackHTML;
+    }
+    
     mainPage.style.display = 'none';
     detailPage.style.display = 'block';
-    detailPage.scrollTop = 0;
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    
+    // Add state to browser history so the back button works
+    history.pushState({ projectOpen: true }, "", "#project");
 }
 
-window.closeProject = function () {
+window.zoomImage = function(src, caption) {
+    const overlay = document.getElementById('image-zoom-overlay');
+    document.getElementById('zoomed-image').src = src;
+    document.getElementById('zoomed-caption').textContent = caption;
+    overlay.classList.add('active');
+}
+
+window.closeZoom = function() {
+    const overlay = document.getElementById('image-zoom-overlay');
+    overlay.classList.remove('active');
+}
+
+window.closeProject = function (fromPopState) {
     detailPage.style.display = 'none';
     mainPage.style.display = 'block';
+    const portfolioSection = document.getElementById('portfolio');
+    if (portfolioSection) {
+        portfolioSection.scrollIntoView({ behavior: 'instant' });
+    }
+    
+    // If closed via the on-screen button, sync the browser history
+    if (fromPopState !== true) {
+        history.back();
+    }
 }
+
+// Listen for Chrome's back button
+window.addEventListener('popstate', function(e) {
+    if (detailPage.style.display === 'block') {
+        window.closeProject(true);
+    }
+});
 
 window.toggleMenu = function () {
     const nav = document.getElementById('nav-menu');
@@ -417,11 +497,11 @@ if (slider) {
 }
 
 // --- Manual Button Slide for Carousel ---
-window.slideCarousel = function(direction) {
+window.slideCarousel = function (direction) {
     const container = document.querySelector('.carousel-track-container');
     if (container) {
         // Approximate width of one card + gap
-        const scrollAmount = 380; 
+        const scrollAmount = 380;
         container.scrollBy({
             left: direction * scrollAmount,
             behavior: 'smooth'
