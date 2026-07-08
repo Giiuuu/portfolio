@@ -211,13 +211,10 @@
 
                         <!-- Blank Project Templates -->
                         <div class="portfolio-item">
-                            <div class="portfolio-img"
-                                style="background-color: rgba(255, 255, 255, 0.05); display: flex; align-items: center; justify-content: center; border: 2px dashed rgba(255, 255, 255, 0.2);">
-                                <span style="color: var(--text-muted); font-size: 0.9rem;">Add Image</span>
-                            </div>
-                            <h3 class="portfolio-title">New Project Title</h3>
-                            <p class="portfolio-desc">Project description goes here...</p>
-                            <button onclick="/* Add project function */" class="arrow-btn" aria-label="View Project">
+                            <img src="portoweb.png" alt="portoweb" class="portfolio-img" loading="lazy">
+                            <h3 class="portfolio-title">Portfolio Website</h3>
+                            <p class="portfolio-desc">Portfolio Website</p>
+                            <button onclick="openProject('blank1')" class="arrow-btn" aria-label="View Project">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                                     stroke-linecap="round" stroke-linejoin="round">
                                     <polyline points="9 18 15 12 9 6"></polyline>
@@ -226,13 +223,10 @@
                         </div>
 
                         <div class="portfolio-item">
-                            <div class="portfolio-img"
-                                style="background-color: rgba(255, 255, 255, 0.05); display: flex; align-items: center; justify-content: center; border: 2px dashed rgba(255, 255, 255, 0.2);">
-                                <span style="color: var(--text-muted); font-size: 0.9rem;">Add Image</span>
-                            </div>
+                            <img src="" alt="New Project" class="portfolio-img" loading="lazy">
                             <h3 class="portfolio-title">New Project Title</h3>
                             <p class="portfolio-desc">Project description goes here...</p>
-                            <button onclick="/* Add project function */" class="arrow-btn" aria-label="View Project">
+                            <button onclick="openProject('blank2')" class="arrow-btn" aria-label="View Project">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                                     stroke-linecap="round" stroke-linejoin="round">
                                     <polyline points="9 18 15 12 9 6"></polyline>
@@ -241,13 +235,10 @@
                         </div>
 
                         <div class="portfolio-item">
-                            <div class="portfolio-img"
-                                style="background-color: rgba(255, 255, 255, 0.05); display: flex; align-items: center; justify-content: center; border: 2px dashed rgba(255, 255, 255, 0.2);">
-                                <span style="color: var(--text-muted); font-size: 0.9rem;">Add Image</span>
-                            </div>
+                            <img src="" alt="New Project" class="portfolio-img" loading="lazy">
                             <h3 class="portfolio-title">New Project Title</h3>
                             <p class="portfolio-desc">Project description goes here...</p>
-                            <button onclick="/* Add project function */" class="arrow-btn" aria-label="View Project">
+                            <button onclick="openProject('blank3')" class="arrow-btn" aria-label="View Project">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                                     stroke-linecap="round" stroke-linejoin="round">
                                     <polyline points="9 18 15 12 9 6"></polyline>
@@ -297,15 +288,7 @@
                                         <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                                     </svg>
                                 </a>
-                                <a href="mailto:theodore@example.com" target="_blank" aria-label="Email">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <path
-                                            d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
-                                        </path>
-                                        <polyline points="22,6 12,13 2,6"></polyline>
-                                    </svg>
-                                </a>
+
                             </div>
                         </div>
                     </div>
@@ -324,7 +307,7 @@
                             </div>
                             <div class="recaptcha-wrapper">
                                 <!-- TODO: Replace data-sitekey with your actual reCAPTCHA v2 Site Key -->
-                                <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+                                <div class="g-recaptcha" data-sitekey="6LeoCkotAAAAAKPwuczc-jZM6anw3aKASaTSGUVC"></div>
                             </div>
                             <button type="submit" class="contact-btn shimmer-btn" id="submit-btn">Send Message</button>
                             <p id="form-status" style="margin-top: 15px; font-size: 0.95rem; display: none;"></p>
@@ -333,7 +316,10 @@
                 </div>
             </div>
             <footer>
-                <p>&copy; 2026 Theodore's Portfolio.</p>
+                <div class="footer-content">
+                    <p>&copy; 2026 Theodore's Portfolio.</p>
+                    <p class="footer-secret">aSbSb3Z1IEJETQ==</p>
+                </div>
             </footer>
         </section>
     </main>

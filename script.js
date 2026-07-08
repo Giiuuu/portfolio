@@ -216,6 +216,39 @@ const projectsData = {
                             <li><strong>Role:</strong> Project Manager.</li>
                             <li><strong>Tech Stack:</strong> HTML, CSS, JavaScript.</li>
                         </ul>`
+    },
+    'blank1': {
+        title: "Portfolio Website",
+        img: "portoweb.png",
+        content: "<p>A modern, responsive, and highly interactive personal portfolio website designed to showcase projects, skills, and professional experience. Built with a focus on premium aesthetics, dynamic animations, and smooth user experiences.</p>",
+        documentation: `<h3>Project Details</h3>
+                        <ul style="margin-top: 15px; margin-left: 20px; color: var(--text-muted);">
+                            <li><strong>Objective:</strong> Create a compelling digital presence and professional portfolio.</li>
+                            <li><strong>Role:</strong> Front-End Developer & Designer.</li>
+                            <li><strong>Tech Stack:</strong> HTML5, CSS3, Vanilla JavaScript, EmailJS.</li>
+                        </ul>`
+    },
+    'blank2': {
+        title: "New Project Title",
+        img: "",
+        content: "<p>Project description goes here...</p>",
+        documentation: `<h3>Project Details</h3>
+                        <ul style="margin-top: 15px; margin-left: 20px; color: var(--text-muted);">
+                            <li><strong>Objective:</strong> ...</li>
+                            <li><strong>Role:</strong> ...</li>
+                            <li><strong>Tech Stack:</strong> ...</li>
+                        </ul>`
+    },
+    'blank3': {
+        title: "New Project Title",
+        img: "",
+        content: "<p>Project description goes here...</p>",
+        documentation: `<h3>Project Details</h3>
+                        <ul style="margin-top: 15px; margin-left: 20px; color: var(--text-muted);">
+                            <li><strong>Objective:</strong> ...</li>
+                            <li><strong>Role:</strong> ...</li>
+                            <li><strong>Tech Stack:</strong> ...</li>
+                        </ul>`
     }
 };
 
