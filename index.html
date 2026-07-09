@@ -200,113 +200,95 @@
                 <p class="section-subtitle reveal-left">MY RECENT WORK</p>
                 <h2 class="section-title reveal-left">Selected Projects</h2>
 
-                <div class="portfolio-carousel-wrapper reveal-right">
-                <button class="carousel-nav-btn prev-btn" onclick="slideCarousel(-1)" aria-label="Previous Project">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <polyline points="15 18 9 12 15 6"></polyline>
-                    </svg>
-                </button>
-
-                <div class="carousel-track-container">
-                    <!-- Track 1 -->
-                    <div class="carousel-track">
-                        <div class="portfolio-item">
-                            <img src="/kiyoka.png" alt="KiyokaRice" class="portfolio-img" loading="lazy">
-                            <div class="portfolio-content">
-                                <h3 class="portfolio-title">Kiyoka Rice</h3>
-                                <p class="portfolio-desc">Freelance Web Developer</p>
-                                <button onclick="openProject('kiyoka')" class="arrow-btn"
-                                    aria-label="View WannaCry Ransomware Project">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <polyline points="9 18 15 12 9 6"></polyline>
-                                    </svg>
-                                </button>
-                            </div>
+                <div class="portfolio-grid reveal-up">
+                    <!-- Project 1: Kiyoka Rice -->
+                    <div class="portfolio-card">
+                        <div class="portfolio-card-img-wrapper">
+                            <img src="/kiyoka.png" alt="KiyokaRice" class="portfolio-card-img" loading="lazy">
                         </div>
-
-                        <div class="portfolio-item">
-                            <img src="/CTRLP.jpg.jpeg" alt="SosPro" class="portfolio-img" loading="lazy">
-                            <div class="portfolio-content">
-                                <h3 class="portfolio-title">CTRL P + CTRL F</h3>
-                                <p class="portfolio-desc">Social Project in the form of a seminar </p>
-                                <button onclick="openProject('ntt')" class="arrow-btn"
-                                    aria-label="View Map Zoom Animation Project">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <polyline points="9 18 15 12 9 6"></polyline>
-                                    </svg>
-                                </button>
+                        <div class="portfolio-card-content">
+                            <h3 class="portfolio-card-title">Kiyoka Rice</h3>
+                            <p class="portfolio-card-desc">Freelance Web Developer project focusing on building a responsive and interactive website.</p>
+                            <div class="tech-tags">
+                                <span class="tag-badge">HTML</span>
+                                <span class="tag-badge">CSS</span>
+                                <span class="tag-badge">JavaScript</span>
                             </div>
-                        </div>
-
-                        <div class="portfolio-item">
-                            <img src="/click.jpeg" alt="Click&Found" class="portfolio-img" loading="lazy">
-                            <div class="portfolio-content">
-                                <h3 class="portfolio-title">Click & Found</h3>
-                                <p class="portfolio-desc">Economic Survival project </p>
-                                <button onclick="openProject('slr')" class="arrow-btn"
-                                    aria-label="View Data Privacy Project">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <polyline points="9 18 15 12 9 6"></polyline>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Blank Project Templates -->
-                        <div class="portfolio-item">
-                            <img src="portoweb.png" alt="portoweb" class="portfolio-img" loading="lazy">
-                            <div class="portfolio-content">
-                                <h3 class="portfolio-title">Portfolio Website</h3>
-                                <p class="portfolio-desc">Portfolio Website</p>
-                                <button onclick="openProject('blank1')" class="arrow-btn" aria-label="View Project">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <polyline points="9 18 15 12 9 6"></polyline>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="portfolio-item">
-                            <img src="" alt="New Project" class="portfolio-img" loading="lazy">
-                            <div class="portfolio-content">
-                                <h3 class="portfolio-title">New Project Title</h3>
-                                <p class="portfolio-desc">Project description goes here...</p>
-                                <button onclick="openProject('blank2')" class="arrow-btn" aria-label="View Project">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <polyline points="9 18 15 12 9 6"></polyline>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="portfolio-item">
-                            <img src="" alt="New Project" class="portfolio-img" loading="lazy">
-                            <div class="portfolio-content">
-                                <h3 class="portfolio-title">New Project Title</h3>
-                                <p class="portfolio-desc">Project description goes here...</p>
-                                <button onclick="openProject('blank3')" class="arrow-btn" aria-label="View Project">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <polyline points="9 18 15 12 9 6"></polyline>
-                                    </svg>
+                            <div class="portfolio-card-actions">
+                                <button onclick="openProject('kiyoka')" class="portfolio-action-btn" aria-label="View Details">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                    View Details
                                 </button>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                    <button class="carousel-nav-btn next-btn" onclick="slideCarousel(1)" aria-label="Next Project">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <polyline points="9 18 15 12 9 6"></polyline>
-                        </svg>
-                    </button>
+                    <!-- Project 2: CTRL P + CTRL F -->
+                    <div class="portfolio-card">
+                        <div class="portfolio-card-img-wrapper">
+                            <img src="/CTRLP.jpg.jpeg" alt="SosPro" class="portfolio-card-img" loading="lazy">
+                        </div>
+                        <div class="portfolio-card-content">
+                            <h3 class="portfolio-card-title">CTRL P + CTRL F</h3>
+                            <p class="portfolio-card-desc">Social Project in the form of a seminar focusing on education and technology.</p>
+                            <div class="tech-tags">
+                                <span class="tag-badge">Logistics</span>
+                                <span class="tag-badge">Management</span>
+                                <span class="tag-badge">Event Planning</span>
+                            </div>
+                            <div class="portfolio-card-actions">
+                                <button onclick="openProject('ntt')" class="portfolio-action-btn" aria-label="View Details">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: Android CRUD App -->
+                    <div class="portfolio-card">
+                        <div class="portfolio-card-img-wrapper">
+                            <img src="Androstud.png" alt="Andostud" class="portfolio-card-img" loading="lazy">
+                        </div>
+                        <div class="portfolio-card-content">
+                            <h3 class="portfolio-card-title">Android CRUD App</h3>
+                            <p class="portfolio-card-desc">A foundational Android application developed to demonstrate core mobile concepts and CRUD operations.</p>
+                            <div class="tech-tags">
+                                <span class="tag-badge">Java/Kotlin</span>
+                                <span class="tag-badge">SQLite/Room</span>
+                                <span class="tag-badge">XML</span>
+                            </div>
+                            <div class="portfolio-card-actions">
+                                <button onclick="openProject('slr')" class="portfolio-action-btn" aria-label="View Details">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4: Portfolio Website -->
+                    <div class="portfolio-card">
+                        <div class="portfolio-card-img-wrapper">
+                            <img src="portoweb.png" alt="portoweb" class="portfolio-card-img" loading="lazy">
+                        </div>
+                        <div class="portfolio-card-content">
+                            <h3 class="portfolio-card-title">Portfolio Website</h3>
+                            <p class="portfolio-card-desc">A modern, responsive, and highly interactive personal portfolio website showcasing premium aesthetics.</p>
+                            <div class="tech-tags">
+                                <span class="tag-badge">HTML5</span>
+                                <span class="tag-badge">CSS3</span>
+                                <span class="tag-badge">JavaScript</span>
+                                <span class="tag-badge">EmailJS</span>
+                            </div>
+                            <div class="portfolio-card-actions">
+                                <button onclick="openProject('blank1')" class="portfolio-action-btn" aria-label="View Details">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             
@@ -412,7 +394,6 @@
     <div id="image-zoom-overlay" onclick="closeZoom()">
         <span class="close-zoom">&times;</span>
         <img id="zoomed-image" src="" alt="Zoomed">
-        <p id="zoomed-caption"></p>
     </div>
 </body>
 
